@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.poly.DAO;
 
 import com.poly.entity.NhanVien;
@@ -15,27 +11,53 @@ import java.util.List;
 public class NhanVienDAO extends QuanAn<NhanVien, String> {
 
     @Override
-    public void insert(NhanVien model) {
-        String sql = "INSERT INTO NhanVien (MaNV, HoTenNV, GioiTinh, NgaySinh, SDT_NV, CCCD, DiaChi, ChucVu, NgayVaoLam, TrangThai, HinhAnh_NV) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        XJdbc.update(sql, model.getMaNV(), model.getHoTenNV(), model.isGioiTinh(), model.getNgaySinh(), model.getSdtNV(), model.getCccd(), model.getDiaChi(), model.isChucVu(), model.getNgayVaoLam(), model.isTrangThai(), model.getHinhAnhNV());
+    public void insert(NhanVien entity) {
+        String sql = "INSERT INTO NhanVien (MaNV, HoTenNV, GioiTinh, NgaySinh, SDT_NV, CCCD, DiaChi, ChucVu, NgayVaoLam, TrangThai, HinhAnh_NV, MatKhau) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        XJdbc.update(sql,
+                entity.getMaNV(),
+                entity.getHoTenNV(),
+                entity.isGioiTinh(),
+                entity.getNgaySinh(),
+                entity.getSdtNV(),
+                entity.getCccd(),
+                entity.getDiaChi(),
+                entity.isChucVu(),
+                entity.getNgayVaoLam(),
+                entity.isTrangThai(),
+                entity.getHinhAnhNV(),
+                entity.getMatKhau());
+                
+                
     }
 
     @Override
-    public void update(NhanVien model) {
-        String sql = "UPDATE NhanVien SET HoTenNV=?, GioiTinh=?, NgaySinh=?, SDT_NV=?, CCCD=?, DiaChi=?, ChucVu=?, TrangThai=?, HinhAnh_NV=? WHERE MaNV=?";
-        XJdbc.update(sql, model.getHoTenNV(), model.isGioiTinh(), model.getNgaySinh(), model.getSdtNV(), model.getCccd(), model.getDiaChi(), model.isChucVu(), model.isTrangThai(), model.getHinhAnhNV(), model.getMaNV());
+    public void update(NhanVien entity) {
+        String sql = "UPDATE NhanVien SET HoTenNV=?, GioiTinh=?, NgaySinh=?, SDT_NV=?, CCCD=?, DiaChi=?, ChucVu=?, NgayVaoLam=?, TrangThai=?, HinhAnh_NV=?, MatKhau=? WHERE MaNV=?";
+        XJdbc.update(sql,
+                entity.getHoTenNV(),
+                entity.isGioiTinh(),
+                entity.getNgaySinh(),
+                entity.getSdtNV(),
+                entity.getCccd(),
+                entity.getDiaChi(),
+                entity.isChucVu(),
+                entity.getNgayVaoLam(),
+                entity.isTrangThai(),
+                entity.getHinhAnhNV(),
+                entity.getMatKhau(),
+                entity.getMaNV());
     }
 
     @Override
-    public void delete(String maNV) {
+    public void delete(String id) {
         String sql = "DELETE FROM NhanVien WHERE MaNV=?";
-        XJdbc.update(sql, maNV);
+        XJdbc.update(sql, id);
     }
 
     @Override
-    public NhanVien selectById(String maNV) {
+    public NhanVien selectById(String id) {
         String sql = "SELECT * FROM NhanVien WHERE MaNV=?";
-        List<NhanVien> list = this.selectBySql(sql, maNV);
+        List<NhanVien> list = this.selectBySql(sql, id);
         return list.size() > 0 ? list.get(0) : null;
     }
 
@@ -65,6 +87,7 @@ public class NhanVienDAO extends QuanAn<NhanVien, String> {
                     entity.setNgayVaoLam(rs.getDate("NgayVaoLam"));
                     entity.setTrangThai(rs.getBoolean("TrangThai"));
                     entity.setHinhAnhNV(rs.getString("HinhAnh_NV"));
+                    entity.setMatKhau(rs.getString("MatKhau"));
                     list.add(entity);
                 }
             } finally {
@@ -78,9 +101,37 @@ public class NhanVienDAO extends QuanAn<NhanVien, String> {
         }
         return list;
     }
-    
-        public List<NhanVien> selectByKeyword(String keyword) {
-        String sql = "SELECT * FROM NhanVien WHERE HoTenNV LIKE ?";
-        return this.selectBySql(sql, "%" + keyword + "%");
+
+    // New method to select MaNV and MatKhau
+    public List<NhanVien> selectMaNVvsMatKhau() {
+        String sql = "SELECT MaNV, MatKhau FROM NhanVien";
+        List<NhanVien> list = new ArrayList<>();
+        try {
+            ResultSet rs = null;
+            try {
+                rs = XJdbc.query(sql);
+                while (rs.next()) {
+                    NhanVien entity = new NhanVien();
+                    entity.setMaNV(rs.getString("MaNV"));
+                    entity.setMatKhau(rs.getString("MatKhau"));
+                    list.add(entity);
+                }
+            } finally {
+                if (rs != null) {
+                    rs.getStatement().getConnection().close();
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
+        }
+        return list;
+    }
+
+    // New method to select by keyword
+    public List<NhanVien> selectByKeyword(String keyword) {
+        String sql = "SELECT * FROM NhanVien WHERE MaNV LIKE ? OR HoTenNV LIKE ? OR SDT_NV LIKE ?";
+        keyword = "%" + keyword + "%";
+        return this.selectBySql(sql, keyword, keyword, keyword);
     }
 }
