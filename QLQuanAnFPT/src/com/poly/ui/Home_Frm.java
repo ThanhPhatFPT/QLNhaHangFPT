@@ -238,6 +238,7 @@ public class Home_Frm extends javax.swing.JFrame {
         btnXoaMonAn = new javax.swing.JButton();
         btnLamMoiMA = new javax.swing.JButton();
         btnCapNhatMA = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel30 = new javax.swing.JPanel();
         jPanel33 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -272,6 +273,7 @@ public class Home_Frm extends javax.swing.JFrame {
         btnXoa = new javax.swing.JButton();
         btnCapNhat = new javax.swing.JButton();
         btnLamMoi = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         rdoNam = new javax.swing.JRadioButton();
         rdoNu = new javax.swing.JRadioButton();
         rdoQuanLi = new javax.swing.JRadioButton();
@@ -853,12 +855,18 @@ public class Home_Frm extends javax.swing.JFrame {
         btnCapNhatMA.setText("Cập nhật");
         jPanel36.add(btnCapNhatMA);
 
+        jButton1.setText("jButton1");
+
         javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
         jPanel29.setLayout(jPanel29Layout);
         jPanel29Layout.setHorizontalGroup(
             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel29Layout.setVerticalGroup(
             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -866,6 +874,8 @@ public class Home_Frm extends javax.swing.JFrame {
                 .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -1077,6 +1087,9 @@ public class Home_Frm extends javax.swing.JFrame {
         });
         jPanel42.add(btnLamMoi);
 
+        jButton2.setText("jButton2");
+        jPanel42.add(jButton2);
+
         grbGender.add(rdoNam);
         rdoNam.setText("Nam");
 
@@ -1140,7 +1153,7 @@ public class Home_Frm extends javax.swing.JFrame {
                                     .addGroup(jPanel40Layout.createSequentialGroup()
                                         .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(txtNgaySinh, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtMaNV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                                            .addComponent(txtMaNV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                                             .addComponent(txtHoTen, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addGap(30, 30, 30)
                                         .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1170,7 +1183,6 @@ public class Home_Frm extends javax.swing.JFrame {
                                 .addGap(43, 43, 43)
                                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel40Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(rdoQuanLi)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(rdoNhanVien)))))
@@ -1661,6 +1673,8 @@ public class Home_Frm extends javax.swing.JFrame {
     private javax.swing.ButtonGroup grbGender;
     private javax.swing.ButtonGroup grbTrangThaiMA;
     private javax.swing.ButtonGroup grpChucVu;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;

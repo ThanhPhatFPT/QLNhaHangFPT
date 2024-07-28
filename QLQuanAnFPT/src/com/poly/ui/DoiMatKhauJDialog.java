@@ -46,6 +46,7 @@ public class DoiMatKhauJDialog extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         txtMatKhauMoi = new javax.swing.JPasswordField();
         txtMatKhauMoi2 = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("EduSys - Đổi mật khẩu");
@@ -92,6 +93,8 @@ public class DoiMatKhauJDialog extends javax.swing.JDialog {
         jPanel1.add(txtMatKhauMoi);
         jPanel1.add(txtMatKhauMoi2);
 
+        jButton1.setText("jButton1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,6 +108,8 @@ public class DoiMatKhauJDialog extends javax.swing.JDialog {
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
                         .addComponent(btnDoiMatKhau)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnHuy)))
@@ -120,7 +125,8 @@ public class DoiMatKhauJDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDoiMatKhau)
-                    .addComponent(btnHuy))
+                    .addComponent(btnHuy)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -183,6 +189,7 @@ public class DoiMatKhauJDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDoiMatKhau;
     private javax.swing.JButton btnHuy;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
