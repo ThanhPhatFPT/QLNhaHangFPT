@@ -81,4 +81,14 @@ public class MonAnDAO extends QuanAn<MonAn, Integer> {
         }
         return list;
     }
+     public String getLoaiMonNameById(int maLoaiMon) {
+        LoaiMonAnDAO loaiMonAnDAO = new LoaiMonAnDAO();
+        LoaiMonAn loaiMonAn = loaiMonAnDAO.selectById(maLoaiMon);
+        return loaiMonAn != null ? loaiMonAn.getTenLoaiMon() : "Không xác định";
+    }
+     public List<MonAn> selectByLoai(int maLoaiMon) {
+        String sql = "SELECT * FROM MonAn WHERE MaLoaiMon=?";
+        return this.selectBySql(sql, maLoaiMon);
+    }
+     
 }
