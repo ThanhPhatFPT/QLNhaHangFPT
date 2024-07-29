@@ -16,7 +16,7 @@ public class NhanVien {
     private String maNV;
     private String hoTenNV;
     private boolean gioiTinh;
-    private Date ngaySinh = XDate.addDays(new Date(), -365*20);
+    private Date ngaySinh = XDate.addDays(new Date(), -365 * 20);
     private String sdtNV;
     private String cccd;
     private String diaChi;
@@ -24,15 +24,15 @@ public class NhanVien {
     private Date ngayVaoLam;
     private boolean trangThai;
     private String hinhAnhNV;
+    private String matKhau;
 
     public NhanVien() {
     }
 
-    public NhanVien(String maNV, String hoTenNV, boolean gioiTinh, Date ngaySinh, String sdtNV, String cccd, String diaChi, boolean chucVu, Date ngayVaoLam, boolean trangThai, String hinhAnhNV) {
+    public NhanVien(String maNV, String hoTenNV, boolean gioiTinh, String sdtNV, String cccd, String diaChi, boolean chucVu, Date ngayVaoLam, boolean trangThai, String hinhAnhNV, String matKhau) {
         this.maNV = maNV;
         this.hoTenNV = hoTenNV;
         this.gioiTinh = gioiTinh;
-        this.ngaySinh = ngaySinh;
         this.sdtNV = sdtNV;
         this.cccd = cccd;
         this.diaChi = diaChi;
@@ -40,6 +40,7 @@ public class NhanVien {
         this.ngayVaoLam = ngayVaoLam;
         this.trangThai = trangThai;
         this.hinhAnhNV = hinhAnhNV;
+        this.matKhau = matKhau;
     }
 
     public String getMaNV() {
@@ -98,7 +99,6 @@ public class NhanVien {
         this.diaChi = diaChi;
     }
 
-
     public boolean isChucVu() {
         return chucVu;
     }
@@ -106,6 +106,7 @@ public class NhanVien {
     public void setChucVu(boolean chucVu) {
         this.chucVu = chucVu;
     }
+
     public Date getNgayVaoLam() {
         return ngayVaoLam;
     }
@@ -129,5 +130,15 @@ public class NhanVien {
     public void setHinhAnhNV(String hinhAnhNV) {
         this.hinhAnhNV = hinhAnhNV;
     }
+
+    public String getMatKhau() {
+        return matKhau;
+    }
+
+    public void setMatKhau(String matKhau) {
+        this.matKhau = matKhau;
+    }
+    
+    
 
 }

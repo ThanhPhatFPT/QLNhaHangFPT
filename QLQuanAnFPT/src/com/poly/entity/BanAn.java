@@ -1,19 +1,22 @@
 package com.poly.entity;
 
 public class BanAn {
+
     private String maBanAn;
     private String tenBan;
+    private boolean trangThai;
     private String maKhuVuc;
-    boolean TrangThai;
+    private String banAnGoc;
 
     public BanAn() {
     }
 
-    public BanAn(String maBanAn, String tenBan, String maKhuVuc, boolean TrangThai) {
+    public BanAn(String maBanAn, String tenBan, boolean trangThai, String maKhuVuc, String banAnGoc) {
         this.maBanAn = maBanAn;
         this.tenBan = tenBan;
+        this.trangThai = trangThai;
         this.maKhuVuc = maKhuVuc;
-        this.TrangThai = TrangThai;
+        this.banAnGoc = banAnGoc;
     }
 
     public String getMaBanAn() {
@@ -32,6 +35,14 @@ public class BanAn {
         this.tenBan = tenBan;
     }
 
+    public boolean isTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(boolean trangThai) {
+        this.trangThai = trangThai;
+    }
+
     public String getMaKhuVuc() {
         return maKhuVuc;
     }
@@ -40,15 +51,12 @@ public class BanAn {
         this.maKhuVuc = maKhuVuc;
     }
 
-    public boolean isTrangThai() {
-        return TrangThai;
+    public String getBanAnGoc() {
+        return banAnGoc;
     }
 
-    public void setTrangThai(boolean TrangThai) {
-        this.TrangThai = TrangThai;
+    public void setBanAnGoc(String banAnGoc) {
+        this.banAnGoc = banAnGoc;
     }
-
     
-    
-   
 }
